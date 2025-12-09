@@ -1,114 +1,217 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  // --- Animation Logic for the "Begin..." text ---
+  const phrases = [
+    "closing deals while you sleep",
+    "turning conversations into customers",
+    "scaling without hiring",
+    "responding in seconds, not hours",
+    "automating what holds you back",
+    "growing on autopilot",
+  ];
+  
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+    }, 3000); // Changes every 3 seconds
+    return () => clearInterval(interval);
+  }, [phrases.length]);
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#020617] text-white selection:bg-blue-500 selection:text-white">
+      
       {/* Navigation */}
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b border-gray-100">
-        <Link className="flex items-center justify-center" href="#">
-          <span className="font-bold text-xl tracking-tight text-gray-900">Coepi Agency</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#services">
-            Services
+      <header className="fixed top-0 w-full z-50 border-b border-white/10 bg-[#020617]/80 backdrop-blur-md">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          <Link className="flex items-center justify-center gap-2" href="#">
+            {/* Simple Logo Icon */}
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span className="font-bold text-xl tracking-tight">coepi.co</span>
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contact">
-            Contact
+          <nav className="hidden md:flex gap-6">
+            <Link className="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#services">
+              Services
+            </Link>
+            <Link className="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#contact">
+              Contact
+            </Link>
+          </nav>
+          <Link
+            className="hidden md:inline-flex h-9 items-center justify-center rounded-full bg-white px-4 text-sm font-medium text-black transition-colors hover:bg-gray-200"
+            href="#contact"
+          >
+            Get Started
           </Link>
-        </nav>
+        </div>
       </header>
 
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+      <main className="flex-1 pt-16">
+        {/* Hero Section with Grid Background */}
+        <section className="relative w-full py-20 md:py-32 lg:py-48 overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+          
+          <div className="container relative z-10 px-4 md:px-6 mx-auto flex flex-col items-center text-center">
+            
+            {/* The Latin Badge */}
+            <div className="mb-8 inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-sm text-blue-300 backdrop-blur-sm">
+              <span className="font-bold text-white mr-2">coepi</span> 
+              <span className="text-gray-400 italic mr-2">/ko-eh-pee/</span> 
+              <span className="text-gray-400">Latin</span>
+              <span className="ml-2 text-blue-200 font-semibold">'to begin'</span>
+            </div>
+
+            {/* Main Headline with Animated Text */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 max-w-4xl">
+              Begin... <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 animate-pulse">
+                {phrases[index]}
+              </span>
+            </h1>
+
+            <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl mb-10">
+              We engineer intelligent systems that scale your operations, reduce overhead, and drive revenue.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                className="inline-flex h-12 items-center justify-center rounded-md bg-blue-600 px-8 text-sm font-medium text-white shadow-lg shadow-blue-900/20 transition-all hover:bg-blue-500 hover:scale-105"
+                href="#contact"
+              >
+                Start Your Transformation
+              </Link>
+              <Link
+                className="inline-flex h-12 items-center justify-center rounded-md border border-white/20 bg-white/5 px-8 text-sm font-medium text-white transition-all hover:bg-white/10"
+                href="#services"
+              >
+                Explore Solutions
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Social Proof / Logo Strip */}
+        <section className="w-full py-12 border-y border-white/5 bg-white/[0.02]">
           <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Automate Your Workflow. <br className="hidden md:inline" />
-                  Scale Your Vision.
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  We build intelligent AI systems that save you time and generate revenue. Stop doing busy work and start leading.
-                </p>
-              </div>
-              <div className="space-x-4">
-                <Link
-                  className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-                  href="mailto:contact@coepi.co"
-                >
-                  Get Started
-                </Link>
-                <Link
-                  className="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-                  href="#services"
-                >
-                  Learn More
-                </Link>
-              </div>
+            <p className="text-center text-sm text-gray-500 mb-8 uppercase tracking-widest">Powering workflows with</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-50 hover:opacity-100 transition-opacity duration-500">
+               {/* Text placeholders for logos to keep it simple & fast */}
+               <span className="text-xl font-bold text-white">OpenAI</span>
+               <span className="text-xl font-bold text-white">n8n</span>
+               <span className="text-xl font-bold text-white">Zapier</span>
+               <span className="text-xl font-bold text-white">Anthropic</span>
+               <span className="text-xl font-bold text-white">Vercel</span>
             </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+        <section id="services" className="w-full py-20 md:py-32 bg-[#020617]">
           <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Services</h2>
-                <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Leveraging the latest in generative AI and automation technology.
-                </p>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+              <div className="inline-block rounded-lg bg-blue-500/10 px-3 py-1 text-sm text-blue-400">
+                Our Capabilities
               </div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
+                Intelligent Agents
+              </h2>
+              <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed">
+                A comprehensive suite of automations designed to handle every stage of your business lifecycle.
+              </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-12">
-              {/* Service 1 */}
-              <div className="flex flex-col items-center space-y-4 text-center p-6 bg-white rounded-lg shadow-sm">
-                <div className="p-3 bg-gray-100 rounded-full">
-                  <svg className=" w-6 h-6 text-gray-900" fill="none" height="24" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /><path d="m9 12 2 2 4-4" /></svg>
+            
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {/* Card 1 */}
+              <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 hover:border-blue-500/50 transition-colors">
+                <div className="mb-4 inline-block rounded-lg bg-blue-500/20 p-3 text-blue-400">
+                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                 </div>
-                <h3 className="text-xl font-bold">Workflow Automation</h3>
-                <p className="text-gray-500">
-                  Connect your apps (Slack, Gmail, Notion) to run on autopilot using n8n and Zapier.
+                <h3 className="text-xl font-bold text-white mb-2">Voice Agents</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Natural, human-like voice AI that handles inbound/outbound calls, schedules appointments, and qualifies leads 24/7.
                 </p>
               </div>
-              {/* Service 2 */}
-              <div className="flex flex-col items-center space-y-4 text-center p-6 bg-white rounded-lg shadow-sm">
-                <div className="p-3 bg-gray-100 rounded-full">
-                  <svg className=" w-6 h-6 text-gray-900" fill="none" height="24" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></svg>
+
+              {/* Card 2 */}
+              <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 hover:border-emerald-500/50 transition-colors">
+                <div className="mb-4 inline-block rounded-lg bg-emerald-500/20 p-3 text-emerald-400">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                 </div>
-                <h3 className="text-xl font-bold">AI Content Systems</h3>
-                <p className="text-gray-500">
-                  Generate blogs, social posts, and marketing assets at scale while maintaining your brand voice.
+                <h3 className="text-xl font-bold text-white mb-2">Sales Pipeline</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Triggers intelligent follow-ups, manages scheduling, and re-engages dead leads automatically.
                 </p>
               </div>
-              {/* Service 3 */}
-              <div className="flex flex-col items-center space-y-4 text-center p-6 bg-white rounded-lg shadow-sm">
-                <div className="p-3 bg-gray-100 rounded-full">
-                  <svg className=" w-6 h-6 text-gray-900" fill="none" height="24" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+
+              {/* Card 3 */}
+              <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 hover:border-purple-500/50 transition-colors">
+                <div className="mb-4 inline-block rounded-lg bg-purple-500/20 p-3 text-purple-400">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                 </div>
-                <h3 className="text-xl font-bold">Custom Chat Agents</h3>
-                <p className="text-gray-500">
-                  Build 24/7 support agents that know your business data and can book appointments.
+                <h3 className="text-xl font-bold text-white mb-2">Content Systems</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Generate blogs, social posts, and marketing assets at scale while maintaining your exact brand voice.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-          <p className="text-xs text-gray-500">© 2024 Coepi Agency. All rights reserved.</p>
-          <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-            <Link className="text-xs hover:underline underline-offset-4" href="#">
-              Terms of Service
-            </Link>
-            <Link className="text-xs hover:underline underline-offset-4" href="#">
-              Privacy
-            </Link>
-          </nav>
-        </footer>
+        {/* Contact Form Section */}
+        <section id="contact" className="w-full py-20 bg-[#020617] border-t border-white/10">
+          <div className="container px-4 md:px-6 mx-auto max-w-2xl">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-white mb-4">Start Your Automation Journey</h2>
+              <p className="text-gray-400">
+                Tell us about your business needs. We'll review your requirements and reach out to schedule a strategy session.
+              </p>
+            </div>
+            
+            <form className="space-y-6 bg-white/5 p-8 rounded-2xl border border-white/10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">First Name</label>
+                  <input type="text" placeholder="Jane" className="w-full h-10 rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300">Last Name</label>
+                  <input type="text" placeholder="Smith" className="w-full h-10 rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-300">Email</label>
+                <input type="email" placeholder="jane@company.com" className="w-full h-10 rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-300">How can we help?</label>
+                <textarea 
+                  className="min-h-[100px] w-full rounded-md border border-white/10 bg-black/50 px-3 py-2 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                  placeholder="Tell us about your current challenges..."
+                />
+              </div>
+
+              <button className="w-full h-10 rounded-md bg-white text-black font-medium hover:bg-gray-200 transition-colors">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </section>
       </main>
+
+      <footer className="w-full py-6 bg-black border-t border-white/10 text-center text-xs text-gray-600">
+        <p>© 2025 Coepi Agency. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
