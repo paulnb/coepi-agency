@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  // --- Animation Logic for the "Begin..." text ---
   const phrases = [
     "closing deals while you sleep",
     "turning conversations into customers",
@@ -15,12 +14,24 @@ export default function Home() {
   ];
   
   const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(true); // Controls the fade state
 
   useEffect(() => {
-    // INCREASED to 5000ms (5 seconds) for easier reading
+    const fadeDuration = 500; // 0.5 seconds to fade out
+    const displayDuration = 4000; // Show text for 4 seconds
+
     const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-    }, 5000); 
+      // 1. Fade out
+      setFade(false);
+
+      // 2. Wait for fade out to finish, then swap text and fade back in
+      setTimeout(() => {
+        setIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+        setFade(true);
+      }, fadeDuration);
+
+    }, displayDuration);
+
     return () => clearInterval(interval);
   }, [phrases.length]);
 
@@ -31,7 +42,6 @@ export default function Home() {
       <header className="fixed top-0 w-full z-50 border-b border-white/10 bg-[#020617]/80 backdrop-blur-md">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link className="flex items-center justify-center gap-2" href="#">
-            {/* Simple Logo Icon */}
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -57,13 +67,11 @@ export default function Home() {
       </header>
 
       <main className="flex-1 pt-16">
-        {/* Hero Section with Grid Background */}
         <section className="relative w-full py-20 md:py-32 lg:py-48 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
           
           <div className="container relative z-10 px-4 md:px-6 mx-auto flex flex-col items-center text-center">
             
-            {/* The Latin Badge */}
             <div className="mb-8 inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-sm text-blue-300 backdrop-blur-sm">
               <span className="font-bold text-white mr-2">coepi</span> 
               <span className="text-gray-400 italic mr-2">/ko-eh-pee/</span> 
@@ -71,13 +79,13 @@ export default function Home() {
               <span className="ml-2 text-blue-200 font-semibold">&apos;to begin&apos;</span>
             </div>
 
-            {/* Main Headline with Animated Text */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 max-w-5xl">
               Begin... <br />
-              {/* FIXED: 'min-h-[2.4em]' ensures this box is always tall enough for 2 lines.
-                  'flex items-start justify-center' keeps the text aligned at the top of that box.
+              {/* UPDATED LOGIC:
+                  - 'transition-opacity duration-500' handles the smooth fade.
+                  - We toggle 'opacity-100' vs 'opacity-0' based on the state.
               */}
-              <span className="min-h-[2.4em] flex items-start justify-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 animate-slow-glow transition-all duration-500">
+              <span className={`min-h-[2.4em] flex items-start justify-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-blue-400 bg-300% animate-slow-glow transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}>
                 {phrases[index]}
               </span>
             </h1>
@@ -103,12 +111,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Social Proof / Logo Strip */}
+        {/* Keeping the rest of the sections the same... */}
         <section className="w-full py-12 border-y border-white/5 bg-white/[0.02]">
           <div className="container px-4 md:px-6 mx-auto">
             <p className="text-center text-sm text-gray-500 mb-8 uppercase tracking-widest">Powering workflows with</p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-50 hover:opacity-100 transition-opacity duration-500">
-               {/* Text placeholders for logos */}
                <span className="text-xl font-bold text-white">OpenAI</span>
                <span className="text-xl font-bold text-white">n8n</span>
                <span className="text-xl font-bold text-white">Zapier</span>
@@ -118,7 +125,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services Section */}
         <section id="services" className="w-full py-20 md:py-32 bg-[#020617]">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
@@ -134,7 +140,6 @@ export default function Home() {
             </div>
             
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {/* Card 1 */}
               <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 hover:border-blue-500/50 transition-colors">
                 <div className="mb-4 inline-block rounded-lg bg-blue-500/20 p-3 text-blue-400">
                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
@@ -145,7 +150,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Card 2 */}
               <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 hover:border-emerald-500/50 transition-colors">
                 <div className="mb-4 inline-block rounded-lg bg-emerald-500/20 p-3 text-emerald-400">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
@@ -156,7 +160,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Card 3 */}
               <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 hover:border-purple-500/50 transition-colors">
                 <div className="mb-4 inline-block rounded-lg bg-purple-500/20 p-3 text-purple-400">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
@@ -170,13 +173,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Form Section */}
         <section id="contact" className="w-full py-20 bg-[#020617] border-t border-white/10">
           <div className="container px-4 md:px-6 mx-auto max-w-2xl">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-white mb-4">Start Your Automation Journey</h2>
               <p className="text-gray-400">
-                Tell us about your business needs. We'll review your requirements and reach out to schedule a strategy session.
+                Tell us about your business needs. We&apos;ll review your requirements and reach out to schedule a strategy session.
               </p>
             </div>
             
@@ -214,7 +216,7 @@ export default function Home() {
       </main>
 
       <footer className="w-full py-6 bg-black border-t border-white/10 text-center text-xs text-gray-600">
-        <p>© 2025 Coepi Agency. All rights reserved.</p>
+        <p>© 2025 Coepi. All rights reserved.</p>
       </footer>
     </div>
   );

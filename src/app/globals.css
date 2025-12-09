@@ -45,11 +45,23 @@ body {
 /* ... keep your existing root/body/bg-grid-pattern code ... */
 
 /* Add this new slow glow animation */
+/* Update the keyframes to include background movement for that "shimmer" effect */
 @keyframes slow-glow {
-  0%, 100% { opacity: 1; filter: brightness(100%); }
-  50% { opacity: 0.7; filter: brightness(110%); }
+  0% { 
+    opacity: 1; 
+    background-position: 0% 50%;
+  }
+  50% { 
+    opacity: 0.8; 
+    background-position: 100% 50%;
+  }
+  100% { 
+    opacity: 1; 
+    background-position: 0% 50%;
+  }
 }
 
 .animate-slow-glow {
-  animation: slow-glow 5s ease-in-out infinite;
+  background-size: 300% 300%; /* Makes the gradient large so it can move */
+  animation: slow-glow 6s ease-in-out infinite; /* Slightly slower loop */
 }
