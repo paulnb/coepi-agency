@@ -108,7 +108,7 @@ export default function Home() {
             
 
           <div className="mb-8 inline-flex items-center rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300 backdrop-blur-sm transition-colors duration-300">
-              {/* Double Sparkle Icon (The "AI" Symbol) */}
+              {/* Double Sparkle Icon (Left Side Only) */}
               <span className="text-blue-500 dark:text-blue-400 mr-2">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.83838 2.3787C10.2222 1.54728 11.3967 1.54728 11.7806 2.3787L13.1166 5.27503C13.2625 5.59124 13.5135 5.84234 13.8297 5.98818L16.726 7.32422C17.5574 7.7081 17.5574 8.88258 16.726 9.26646L13.8297 10.6025C13.5135 10.7483 13.2625 10.9994 13.1166 11.3156L11.7806 14.212C11.3967 15.0434 10.2222 15.0434 9.83838 14.212L8.50233 11.3156C8.35649 10.9994 8.1054 10.7483 7.78918 10.6025L4.89285 9.26646C4.06143 8.88258 4.06143 7.7081 4.89285 7.32422L7.78918 5.98818C8.1054 5.84234 8.35649 5.59124 8.50233 5.27503L9.83838 2.3787Z" />
@@ -116,9 +116,10 @@ export default function Home() {
                 </svg>
               </span>
               
-              <span className="font-bold mr-2 text-gray-900 dark:text-white">coepi</span> 
-              {/* Italic Latin */}
-              <span className="opacity-60 italic mr-2 text-sm">Latin</span>
+              {/* BRAND NAME: Restored to Blue */}
+              <span className="font-bold mr-2 text-blue-600 dark:text-blue-400">coepi</span> 
+              
+              <span className="opacity-60 italic mr-2 text-sm text-gray-600 dark:text-gray-400">Latin</span>
               <span className="font-semibold text-blue-600 dark:text-blue-300">&apos;to begin&apos;</span>
           </div>
             
