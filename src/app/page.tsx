@@ -17,9 +17,10 @@ export default function Home() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
+    // INCREASED to 5000ms (5 seconds) for easier reading
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-    }, 3000); // Changes every 3 seconds
+    }, 5000); 
     return () => clearInterval(interval);
   }, [phrases.length]);
 
@@ -67,13 +68,16 @@ export default function Home() {
               <span className="font-bold text-white mr-2">coepi</span> 
               <span className="text-gray-400 italic mr-2">/ko-eh-pee/</span> 
               <span className="text-gray-400">Latin</span>
-              <span className="ml-2 text-blue-200 font-semibold">'to begin'</span>
+              <span className="ml-2 text-blue-200 font-semibold">&apos;to begin&apos;</span>
             </div>
 
             {/* Main Headline with Animated Text */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 max-w-4xl">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 max-w-5xl">
               Begin... <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 animate-pulse">
+              {/* FIXED: 'min-h-[2.4em]' ensures this box is always tall enough for 2 lines.
+                  'flex items-start justify-center' keeps the text aligned at the top of that box.
+              */}
+              <span className="min-h-[2.4em] flex items-start justify-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 animate-slow-glow transition-all duration-500">
                 {phrases[index]}
               </span>
             </h1>
@@ -104,7 +108,7 @@ export default function Home() {
           <div className="container px-4 md:px-6 mx-auto">
             <p className="text-center text-sm text-gray-500 mb-8 uppercase tracking-widest">Powering workflows with</p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-50 hover:opacity-100 transition-opacity duration-500">
-               {/* Text placeholders for logos to keep it simple & fast */}
+               {/* Text placeholders for logos */}
                <span className="text-xl font-bold text-white">OpenAI</span>
                <span className="text-xl font-bold text-white">n8n</span>
                <span className="text-xl font-bold text-white">Zapier</span>

@@ -41,3 +41,15 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #60A5FA;
 }
+
+/* ... keep your existing root/body/bg-grid-pattern code ... */
+
+/* Add this new slow glow animation */
+@keyframes slow-glow {
+  0%, 100% { opacity: 1; filter: brightness(100%); }
+  50% { opacity: 0.7; filter: brightness(110%); }
+}
+
+.animate-slow-glow {
+  animation: slow-glow 5s ease-in-out infinite;
+}
