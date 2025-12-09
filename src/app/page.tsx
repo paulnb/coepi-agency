@@ -109,8 +109,31 @@ export default function Home() {
             <div className="mb-8 inline-flex items-center rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300 backdrop-blur-sm">
               <span className="font-bold mr-2">coepi</span> 
               <span className="opacity-70 italic mr-2">Latin</span> 
-              <span className="opacity-70">:</span>
+              <span className="opacity-70">Latin</span>
               <span className="ml-2 font-semibold">&apos;to begin&apos;</span>
+            </div>
+            <div className="mb-8 inline-flex items-center rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300 backdrop-blur-sm transition-colors duration-300">
+              <span className="font-bold mr-2">coepi</span>
+              <span className="text-blue-400 dark:text-blue-400 mr-2">
+                {/* Simple Sparkles Icon */}
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" />
+                </svg>
+              </span>
+              <span className="opacity-70 mr-2">Latin :</span>
+              <span className="font-semibold">&apos;to begin&apos;</span>
+            </div>
+            <div className="mb-8 inline-flex items-center rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300 backdrop-blur-sm transition-colors duration-300">
+              <span className="font-bold mr-2">coepi</span>
+              <span className="opacity-70 mr-2">Latin</span>
+              <span className="text-blue-400 dark:text-blue-400 mr-2">→</span> {/* Simple Arrow */}
+              <span className="font-semibold">&apos;to begin&apos;</span>
+            </div>
+            <div className="mb-8 inline-flex items-center rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 px-3 py-1 text-sm text-blue-600 dark:text-blue-300 backdrop-blur-sm transition-colors duration-300">
+              <span className="font-bold mr-2">coepi</span>
+              <span className="opacity-30 mx-2">|</span>
+              <span className="opacity-70 mr-2">Latin</span>
+              <span className="font-semibold">&apos;to begin&apos;</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 max-w-5xl text-gray-900 dark:text-white transition-colors duration-300">
