@@ -27,18 +27,14 @@ export const StarBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       
-      {/* LAYER 1: THE ATMOSPHERE (Nebula)
-         - Size: Increased to 70vw (mobile) and 60vw (desktop) for better coverage.
-         - Color: Bumped to Blue-600 and Emerald-500 at 40% opacity. 
-         - Result: A clear Blue top-left and Emerald bottom-right that meets in the middle.
+      {/* LAYER 1: THE ATMOSPHERE (Now Moving!)
+         - Animation: Changed from 'pulse-slow' to 'drift-1' and 'drift-2'.
+         - Duration: 20s and 25s (Slow, organic movement).
       */}
-      <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] md:w-[60vw] md:h-[60vw] rounded-full blur-[80px] md:blur-[120px] animate-[pulse-slow_8s_infinite_ease-in-out] bg-blue-600/40 dark:bg-blue-600/20" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] md:w-[60vw] md:h-[60vw] rounded-full blur-[80px] md:blur-[120px] animate-[pulse-slow_10s_infinite_ease-in-out_reverse] bg-emerald-500/40 dark:bg-emerald-600/20" />
+      <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] md:w-[60vw] md:h-[60vw] rounded-full blur-[80px] md:blur-[120px] animate-[drift-1_20s_infinite_ease-in-out] bg-blue-600/40 dark:bg-blue-600/20" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] md:w-[60vw] md:h-[60vw] rounded-full blur-[80px] md:blur-[120px] animate-[drift-2_25s_infinite_ease-in-out_reverse] bg-emerald-500/40 dark:bg-emerald-600/20" />
 
-      {/* LAYER 2: THE PARTICLES (Stars)
-         - Light Mode: Hidden (bg-transparent)
-         - Dark Mode: Visible (bg-white)
-      */}
+      {/* LAYER 2: THE PARTICLES (Stars) */}
       {particles.map((p) => (
         <div
           key={p.id}
@@ -47,9 +43,7 @@ export const StarBackground = () => {
         />
       ))}
       
-      {/* LAYER 3: THE VIGNETTE 
-         - Reduced overlay opacity (white/50) so the colors shine through better.
-      */}
+      {/* LAYER 3: THE VIGNETTE */}
       <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-white/50 dark:from-slate-950/80 dark:via-transparent dark:to-slate-950/80" />
     </div>
   );
