@@ -36,13 +36,15 @@ return (
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] animate-[pulse-slow_8s_infinite_ease-in-out] bg-blue-500/30 dark:bg-blue-600/20" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] animate-[pulse-slow_10s_infinite_ease-in-out_reverse] bg-purple-500/30 dark:bg-purple-600/20" />
 
-      {/* LAYER 2: THE PARTICLES (Stars / Dust)
-         - Light Mode: Darker dots (bg-slate-900/20) for contrast
+{/* LAYER 2: THE PARTICLES (Stars / Dust)
+         - Light Mode Fix: Changed to 'bg-blue-600/50'. 
+           Now they look like purposeful blue data points, not dust.
+         - Dark Mode: Stays 'dark:bg-white' (Stars).
       */}
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute rounded-full animate-[float-up_linear_infinite] bg-slate-900/20 dark:bg-white"
+          className="absolute rounded-full animate-[float-up_linear_infinite] bg-blue-600/50 dark:bg-white"
           style={p.style}
         />
       ))}
