@@ -183,38 +183,38 @@ export default function Home() {
             </div>
             
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {/* Card 1 */}
-              <div className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 hover:border-blue-500 transition-colors shadow-sm dark:shadow-none">
+              {/* Card 1: Was "Voice Agents" -> Now "24/7 AI Receptionist" */}
+            <div className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 hover:border-blue-500 transition-colors shadow-sm dark:shadow-none">
                 <div className="mb-4 inline-block rounded-lg bg-blue-50 dark:bg-blue-500/20 p-3 text-blue-600 dark:text-blue-400">
                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Voice Agents</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">24/7 Receptionist</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                  Natural, human-like voice AI that handles inbound/outbound calls, schedules appointments, and qualifies leads 24/7.
+                  Never miss a lead again. Our AI answers calls instantly, day or night, qualifies the caller, and books them directly onto your calendar.
                 </p>
-              </div>
+            </div>
 
-              {/* Card 2 */}
-              <div className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 hover:border-emerald-500 transition-colors shadow-sm dark:shadow-none">
+            {/* Card 2: Was "Sales Pipeline" -> Now "Missed Call Text Back" */}
+            <div className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 hover:border-emerald-500 transition-colors shadow-sm dark:shadow-none">
                 <div className="mb-4 inline-block rounded-lg bg-emerald-50 dark:bg-emerald-500/20 p-3 text-emerald-600 dark:text-emerald-400">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Sales Pipeline</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Instant Lead Response</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                  Triggers intelligent follow-ups, manages scheduling, and re-engages dead leads automatically.
+                  If you miss a call, our system automatically texts the client back within seconds to start a conversation and secure the job.
                 </p>
-              </div>
+            </div>
 
-              {/* Card 3 */}
-              <div className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 hover:border-purple-500 transition-colors shadow-sm dark:shadow-none">
+             {/* Card 3: Was "Proposal Generator" -> Now "Review & Reputation Mgmt" */}
+             <div className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 hover:border-purple-500 transition-colors shadow-sm dark:shadow-none">
                 <div className="mb-4 inline-block rounded-lg bg-purple-50 dark:bg-purple-500/20 p-3 text-purple-600 dark:text-purple-400">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Content Systems</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Reputation Growth</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                  Generate blogs, social posts, and marketing assets at scale while maintaining your exact brand voice.
+                  Automatically request 5-star reviews from happy clients via SMS immediately after a job is completed.
                 </p>
-              </div>
+            </div>
             </div>
           </div>
         </section>
