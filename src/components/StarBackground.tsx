@@ -27,12 +27,13 @@ export const StarBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       
-      {/* LAYER 1: THE ATMOSPHERE (Now Moving!)
-         - Animation: Changed from 'pulse-slow' to 'drift-1' and 'drift-2'.
-         - Duration: 20s and 25s (Slow, organic movement).
+      {/* LAYER 1: THE ATMOSPHERE (Desktop Fix)
+         - Mobile: w-[70vw] (Kept large, since you liked it)
+         - Desktop: md:w-[40vw] (SHRUNK significantly so they don't touch in the middle)
+         - Opacity: Reduced to 30% on desktop to fix the "washed out text" issue.
       */}
-      <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] md:w-[60vw] md:h-[60vw] rounded-full blur-[80px] md:blur-[120px] animate-[drift-1_20s_infinite_ease-in-out] bg-blue-600/40 dark:bg-blue-600/20" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] md:w-[60vw] md:h-[60vw] rounded-full blur-[80px] md:blur-[120px] animate-[drift-2_25s_infinite_ease-in-out_reverse] bg-emerald-500/40 dark:bg-emerald-600/20" />
+      <div className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] md:w-[40vw] md:h-[40vw] rounded-full blur-[80px] md:blur-[120px] animate-[drift-1_18s_infinite_ease-in-out] bg-blue-600/20 md:bg-blue-600/30 dark:bg-blue-600/20" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] md:w-[40vw] md:h-[40vw] rounded-full blur-[80px] md:blur-[120px] animate-[drift-2_23s_infinite_ease-in-out_reverse] bg-emerald-500/20 md:bg-emerald-500/30 dark:bg-emerald-600/20" />
 
       {/* LAYER 2: THE PARTICLES (Stars) */}
       {particles.map((p) => (
@@ -43,8 +44,10 @@ export const StarBackground = () => {
         />
       ))}
       
-      {/* LAYER 3: THE VIGNETTE */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-white/50 dark:from-slate-950/80 dark:via-transparent dark:to-slate-950/80" />
+      {/* LAYER 3: THE VIGNETTE 
+         - Kept at 60% white to help text contrast.
+      */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-white/60 dark:from-slate-950/80 dark:via-transparent dark:to-slate-950/80" />
     </div>
   );
 };
