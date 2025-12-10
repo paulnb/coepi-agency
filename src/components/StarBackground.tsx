@@ -30,15 +30,14 @@ return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       
       {/* LAYER 1: THE ATMOSPHERE (Nebula / Aurora)
-         - Light Mode: Lighter, brighter blobs (Blue-300/Purple-300)
-         - Dark Mode: Deeper, darker blobs (Blue-600/Purple-600)
+         - Light Mode Fix: Changed bg-blue-300/40 -> bg-blue-500/30 (Darker, more visible)
+         - Light Mode Fix: Changed bg-purple-300/40 -> bg-purple-500/30
       */}
-      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] animate-[pulse-slow_8s_infinite_ease-in-out] bg-blue-300/40 dark:bg-blue-600/20" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] animate-[pulse-slow_10s_infinite_ease-in-out_reverse] bg-purple-300/40 dark:bg-purple-600/20" />
+      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] animate-[pulse-slow_8s_infinite_ease-in-out] bg-blue-500/30 dark:bg-blue-600/20" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] animate-[pulse-slow_10s_infinite_ease-in-out_reverse] bg-purple-500/30 dark:bg-purple-600/20" />
 
       {/* LAYER 2: THE PARTICLES (Stars / Dust)
-         - Light Mode: Dark Blue/Slate dots (bg-slate-900/10) -> Looks like "Tech Dust"
-         - Dark Mode: White dots (bg-white) -> Looks like "Stars"
+         - Light Mode: Darker dots (bg-slate-900/20) for contrast
       */}
       {particles.map((p) => (
         <div
@@ -48,12 +47,10 @@ return (
         />
       ))}
       
-      {/* LAYER 3: THE VIGNETTE (Focus edges)
-         - Light Mode: Fades to WHITE edges (Clean)
-         - Dark Mode: Fades to BLACK edges (Cinematic)
-         Note: We use a standard gradient here for compatibility
+      {/* LAYER 3: THE VIGNETTE
+         - Light Mode Fix: Reduced white opacity (white/80 -> white/40) so the colors show through
       */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/80 dark:from-slate-950/80 dark:via-transparent dark:to-slate-950/80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-white/40 dark:from-slate-950/80 dark:via-transparent dark:to-slate-950/80" />
     </div>
   );
 };
