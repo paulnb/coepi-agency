@@ -364,3 +364,5 @@ export default function Home() {
         <p>© 2025 Coepi. All rights reserved.</p>
       </footer>
     </div>
+  ); // Ends the return statement
+} // Ends the Home function
