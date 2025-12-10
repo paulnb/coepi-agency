@@ -81,3 +81,17 @@ body {
   50% { transform: translateY(-20px); }
   100% { transform: translateY(0px); }
 }
+
+/* New: Subtle floating movement */
+@keyframes float-up {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+}
+
+/* New: Slow pulse for the nebula clouds */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
