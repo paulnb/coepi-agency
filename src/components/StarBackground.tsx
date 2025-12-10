@@ -26,24 +26,34 @@ export const StarBackground = () => {
     setParticles(newParticles);
   }, []);
 
-  return (
+return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       
-      {/* Layer 1: The Nebula (Atmosphere) - Gives it that "Upscale" Glow */}
-      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] animate-[pulse-slow_8s_infinite_ease-in-out]" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px] animate-[pulse-slow_10s_infinite_ease-in-out_reverse]" />
+      {/* LAYER 1: THE ATMOSPHERE (Nebula / Aurora)
+         - Light Mode: Lighter, brighter blobs (Blue-300/Purple-300)
+         - Dark Mode: Deeper, darker blobs (Blue-600/Purple-600)
+      */}
+      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] animate-[pulse-slow_8s_infinite_ease-in-out] bg-blue-300/40 dark:bg-blue-600/20" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] animate-[pulse-slow_10s_infinite_ease-in-out_reverse] bg-purple-300/40 dark:bg-purple-600/20" />
 
-      {/* Layer 2: The Drifting Particles */}
+      {/* LAYER 2: THE PARTICLES (Stars / Dust)
+         - Light Mode: Dark Blue/Slate dots (bg-slate-900/10) -> Looks like "Tech Dust"
+         - Dark Mode: White dots (bg-white) -> Looks like "Stars"
+      */}
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute bg-white rounded-full animate-[float-up_linear_infinite]"
+          className="absolute rounded-full animate-[float-up_linear_infinite] bg-slate-900/20 dark:bg-white"
           style={p.style}
         />
       ))}
       
-      {/* Layer 3: Vignette Overlay (Darkens the edges to focus the eye) */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/80" />
+      {/* LAYER 3: THE VIGNETTE (Focus edges)
+         - Light Mode: Fades to WHITE edges (Clean)
+         - Dark Mode: Fades to BLACK edges (Cinematic)
+         Note: We use a standard gradient here for compatibility
+      */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/80 dark:from-slate-950/80 dark:via-transparent dark:to-slate-950/80" />
     </div>
   );
 };
