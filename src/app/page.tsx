@@ -201,17 +201,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* LOGO STRIP */}
+{/* LOGO STRIP - INTEGRATIONS */}
         <section className="w-full py-12 border-y border-gray-100 dark:border-white/5 bg-gray-50 dark:bg-white/[0.02] transition-colors duration-300">
           <div className="container px-4 md:px-6 mx-auto">
-            <p className="text-center text-sm text-gray-500 mb-8 uppercase tracking-widest">Powering workflows with</p>
-            {/* Logos are darker in light mode, lighter in dark mode */}
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-60 dark:opacity-50 hover:opacity-100 transition-opacity duration-500">
+            <p className="text-center text-sm text-gray-500 mb-8 uppercase tracking-widest">
+              Seamlessly Integrating With
+            </p>
+            
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 grayscale opacity-60 dark:opacity-50 hover:opacity-100 transition-opacity duration-500">
+               
+               {/* 1. The Magic */}
                <span className="text-xl font-bold text-gray-800 dark:text-white">OpenAI</span>
-               <span className="text-xl font-bold text-gray-800 dark:text-white">n8n</span>
-               <span className="text-xl font-bold text-gray-800 dark:text-white">Zapier</span>
-               <span className="text-xl font-bold text-gray-800 dark:text-white">Anthropic</span>
-               <span className="text-xl font-bold text-gray-800 dark:text-white">Vercel</span>
+               
+               {/* 2. The Communication */}
+               <span className="text-xl font-bold text-gray-800 dark:text-white">WhatsApp</span>
+               
+               {/* 3. The Utility */}
+               <span className="text-xl font-bold text-gray-800 dark:text-white">Google Workspace</span>
+               
+               {/* 4. The Revenue */}
+               <span className="text-xl font-bold text-gray-800 dark:text-white">Stripe</span>
+               
+               {/* 5. The Corporate */}
+               <span className="text-xl font-bold text-gray-800 dark:text-white">Outlook</span>
+
+               {/* 6. The Catch-All */}
+               <span className="text-lg font-medium italic text-gray-500 dark:text-gray-400">...and more</span>
             </div>
           </div>
         </section>
