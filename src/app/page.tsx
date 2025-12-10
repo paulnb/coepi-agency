@@ -174,7 +174,8 @@ export default function Home() {
           
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 max-w-5xl text-gray-900 dark:text-white transition-colors duration-300">
               Begin... <br />
-              <span className={`min-h-[2.4em] flex items-start justify-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-emerald-500 to-blue-600 dark:from-blue-400 dark:via-emerald-400 dark:to-blue-400 bg-300% animate-slow-glow transition-opacity duration-1000 ${fade ? 'opacity-100' : 'opacity-0'}`}>
+              {/* UPDATED: Increased min-h for mobile to stop layout jump */}
+              <span className={`min-h-[3.6em] md:min-h-[2.4em] flex items-start justify-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-emerald-500 to-blue-600 dark:from-blue-400 dark:via-emerald-400 dark:to-blue-400 bg-300% animate-slow-glow transition-opacity duration-1000 ${fade ? 'opacity-100' : 'opacity-0'}`}>
                 {phrases[index]}
               </span>
             </h1>
