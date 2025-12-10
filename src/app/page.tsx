@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes"; // <--- Step 6A: Import goes here
+import { StarBackground } from "@/components/StarBackground"; // <--- Gets StarBackground.tsx
 
 export default function Home() {
   const { theme, setTheme } = useTheme(); // <--- Step 6B: Hook goes here
@@ -148,9 +149,11 @@ export default function Home() {
       <main className="flex-1 pt-16">
         {/* HERO SECTION */}
         <section className="relative w-full py-20 md:py-32 lg:py-48 overflow-hidden">
-          {/* Grid pattern changes opacity based on theme */}
-          <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-20 pointer-events-none"></div>
-          
+          {/* 1. ADD the Star Background here */}
+          <div className="absolute inset-0 z-0">
+             <StarBackground />
+          </div>
+                    
           <div className="container relative z-10 px-4 md:px-6 mx-auto flex flex-col items-center text-center">
             
           {/* BADGE */}
