@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth; /* <--- THIS IS THE MAGIC LINE */
+}
+
 :root {
   /* Light Mode Defaults */
   --background: #ffffff;
