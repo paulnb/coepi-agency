@@ -181,7 +181,8 @@ export default function Home() {
             </h1>
 
             <p className="mx-auto max-w-[700px] text-gray-600 dark:text-gray-400 md:text-xl mb-10 transition-colors duration-300">
-              We engineer intelligent systems that scale your operations, reduce overhead, and drive revenue.
+              We stop the chaos of missed calls, disorganized follow-up, and manual data entry 
+              for businesses so you can focus on the trade.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -317,6 +318,57 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+{/* --- NEW SECTION: ASPIRATIONAL PROOF / OUR STANDARDS --- */}
+        <section className="w-full py-20 md:py-32 bg-white dark:bg-slate-950 transition-colors duration-300">
+          <div className="container px-4 md:px-6 mx-auto max-w-5xl">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-gray-900 dark:text-white">
+                Our Standard is Performance.
+              </h2>
+              <p className="max-w-[700px] mx-auto text-gray-600 dark:text-gray-400 mt-3 md:text-xl/relaxed">
+                We design every system to eliminate waste and drive measurable growth from day one.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+              
+              {/* Metric 1: SPEED */}
+              <div className="flex flex-col items-center">
+                <h3 className="text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">
+                  <span className="font-light text-gray-900 dark:text-white mr-1">TTR</span> 30s
+                </h3>
+                <p className="text-lg font-semibold text-gray-900 dark:text-white">Instant Lead Response</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Our system captures, qualifies, and follows up with new leads in under 30 seconds.
+                </p>
+              </div>
+
+              {/* Metric 2: RELIABILITY */}
+              <div className="flex flex-col items-center">
+                <h3 className="text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">
+                  99.9%
+                </h3>
+                <p className="text-lg font-semibold text-gray-900 dark:text-white">Uptime Guarantee</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  Your automation is hosted on dedicated infrastructure built for enterprise reliability.
+                </p>
+              </div>
+
+              {/* Metric 3: VALUE */}
+              <div className="flex flex-col items-center">
+                <h3 className="text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">
+                  10x
+                </h3>
+                <p className="text-lg font-semibold text-gray-900 dark:text-white">Minimum ROI Focus</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  We don't build tech for tech's sake. We focus only on workflows that directly multiply your revenue.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* --- END NEW SECTION --- */}
 
         {/* CONTACT FORM - CONNECTED TO WEBHOOK */}
         <section id="contact" className="w-full py-20 bg-gray-50 dark:bg-slate-950 border-t border-gray-200 dark:border-white/10 transition-colors duration-300">
