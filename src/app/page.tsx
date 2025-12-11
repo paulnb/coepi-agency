@@ -201,29 +201,56 @@ export default function Home() {
           </div>
         </section>
 
-{/* LOGO STRIP - INTEGRATIONS */}
+{/* LOGO STRIP - INTEGRATIONS WITH ICONS */}
         <section className="w-full py-12 border-y border-gray-100 dark:border-white/5 bg-gray-50 dark:bg-white/[0.02] transition-colors duration-300">
           <div className="container px-4 md:px-6 mx-auto">
             <p className="text-center text-sm text-gray-500 mb-8 uppercase tracking-widest">
               Seamlessly Integrating With
             </p>
             
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 grayscale opacity-60 dark:opacity-50 hover:opacity-100 transition-opacity duration-500">
+            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 md:gap-x-20 md:gap-y-8 grayscale opacity-70 dark:opacity-60">
                
-               {/* 1. The Magic */}
-               <span className="text-xl font-bold text-gray-800 dark:text-white">OpenAI</span>
+               {/* Integration Item Container */}
                
-               {/* 2. The Communication */}
-               <span className="text-xl font-bold text-gray-800 dark:text-white">WhatsApp</span>
+               {/* 1. OpenAI (The Magic Sparkle) */}
+               <div className="flex flex-col items-center justify-center space-y-2">
+                 <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.83838 2.3787C10.2222 1.54728 11.3967 1.54728 11.7806 2.3787L13.1166 5.27503C13.2625 5.59124 13.5135 5.84234 13.8297 5.98818L16.726 7.32422C17.5574 7.7081 17.5574 8.88258 16.726 9.26646L13.8297 10.6025C13.5135 10.7483 13.2625 10.9994 13.1166 11.3156L11.7806 14.212C11.3967 15.0434 10.2222 15.0434 9.83838 14.212L8.50233 11.3156C8.35649 10.9994 8.1054 10.7483 7.78918 10.6025L4.89285 9.26646C4.06143 8.88258 4.06143 7.7081 4.89285 7.32422L7.78918 5.98818C8.1054 5.84234 8.35649 5.59124 8.50233 5.27503L9.83838 2.3787Z" />
+                 </svg>
+                 <span className="text-sm font-bold text-gray-800 dark:text-white mt-1">OpenAI</span>
+               </div>
                
-               {/* 3. The Utility */}
-               <span className="text-xl font-bold text-gray-800 dark:text-white">Google Workspace</span>
+               {/* 2. WhatsApp (The Chat Bubble) */}
+               <div className="flex flex-col items-center justify-center space-y-2">
+                 <svg className="w-8 h-8 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11.172 16h5.828a2 2 0 002-2V8m-11 0a2 2 0 11-4 0 2 2 0 014 0zM17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11.172 16h5.828a2 2 0 002-2V8m-11 0a2 2 0 11-4 0 2 2 0 014 0z" />
+                 </svg>
+                 <span className="text-sm font-bold text-gray-800 dark:text-white mt-1">WhatsApp</span>
+               </div>
                
-               {/* 4. The Revenue */}
-               <span className="text-xl font-bold text-gray-800 dark:text-white">Stripe</span>
+               {/* 3. Google Workspace (The G) */}
+               <div className="flex flex-col items-center justify-center space-y-2">
+                 <svg className="w-8 h-8 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 14l-4-4 4-4V6h2v4l4 4-4 4v-2h-2v2z" />
+                 </svg>
+                 <span className="text-sm font-bold text-gray-800 dark:text-white mt-1">Google Workspace</span>
+               </div>
                
-               {/* 5. The Corporate */}
-               <span className="text-xl font-bold text-gray-800 dark:text-white">Outlook</span>
+               {/* 4. Stripe (The Credit Card / Money) */}
+               <div className="flex flex-col items-center justify-center space-y-2">
+                 <svg className="w-8 h-8 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                 </svg>
+                 <span className="text-sm font-bold text-gray-800 dark:text-white mt-1">Stripe</span>
+               </div>
+               
+               {/* 5. Outlook (The Envelope / Email) */}
+               <div className="flex flex-col items-center justify-center space-y-2">
+                 <svg className="w-8 h-8 text-sky-600 dark:text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                 </svg>
+                 <span className="text-sm font-bold text-gray-800 dark:text-white mt-1">Outlook</span>
+               </div>
 
                {/* 6. The Catch-All */}
                <span className="text-lg font-medium italic text-gray-500 dark:text-gray-400">...and more</span>
